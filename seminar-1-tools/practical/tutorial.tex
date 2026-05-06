@@ -73,15 +73,15 @@
 
 % --- Document metadata ---
 \title{\textbf{From Topic to Talk in One Pipeline}\\[2pt]
-\large A 45-minute practical with seven AI research tools}
-\author{LOURIM --- AI for Research Seminar Series, Part 1\\\small Practical session, Corentin Vande Kerckhove}
-\date{\today}
+\large A 45-minute practical with six AI research tools}
+\author{LOURIM, AI for Research Seminar Series, Part 1\\\small Practical session, Corentin Vande Kerckhove}
+\date{8 May 2026}
 
 \begin{document}
 \maketitle
 
 \begin{tcolorbox}[colback=accent!8, colframe=accent!50, left=10pt, right=10pt, top=6pt, bottom=6pt, boxrule=0.4pt, arc=3pt]
-\textbf{What you will do today.} You received a research topic on a slip of paper, randomly assigned by a peer. By the end of this session you will have \emph{started} a pipeline that ends, at home, with a short paper draft and a slide deck on that topic --- which you will email to a researcher working in the field. The seven tools below each take care of one step.
+\textbf{What you will do today.} You received a research topic on a slip of paper, randomly assigned by a peer. By the end of this session you will have \emph{started} a pipeline that ends, at home, with a short paper draft and a slide deck on that topic, which you will email to a researcher working in the field. The six tools below each take care of one step.
 \end{tcolorbox}
 
 \tableofcontents
@@ -94,7 +94,7 @@
 
 \subsection{From topic to talk: the method}
 
-Before we name any tool, here is the recipe behind doing good research --- with or without AI. Five steps, in order:
+Before we name any tool, here is the recipe behind doing good research, with or without AI. Five steps, in order:
 
 \vspace{0.6em}
 \begin{center}
@@ -129,19 +129,19 @@ Before we name any tool, here is the recipe behind doing good research --- with 
 \end{center}
 \vspace{0.6em}
 
-\textbf{Explore} --- open up. You start from a topic, not a question. Look broadly at what already exists, even outside your own field, so you do not miss the literature that matters.
+\textbf{Explore.} You start from a topic, not a question. Look broadly at what already exists, even outside your own field, so you do not miss the literature that matters.
 
-\textbf{Narrow} --- bring it down. Filter the long initial list into a small, trustworthy set you can actually engage with. Drop the off-topic and the weak.
+\textbf{Narrow.} Filter the long initial list into a small, trustworthy set you can actually engage with. Drop the off-topic and the weak.
 
-\textbf{Read} --- slow down. Spend real time with each source. Note the question it asks, the method it uses, what it finds, and where it is fragile.
+\textbf{Read.} Spend real time with each source. Note the question it asks, the method it uses, what it finds, and where it is fragile.
 
-\textbf{Synthesize} --- connect. Step out of individual papers and look at the picture they make together: what is the consensus, where do they disagree, what is missing?
+\textbf{Synthesize.} Step out of individual papers and look at the picture they make together: what is the consensus, where do they disagree, what is missing?
 
-\textbf{Produce} --- make. Turn that synthesis into something other people can engage with: a written argument, and a presentation that does it justice.
+\textbf{Produce.} Turn that synthesis into something other people can engage with: a written argument, and a presentation that does it justice.
 
-This recipe is the work of any researcher. The seven AI tools below are nothing more than \emph{assistants} for each step --- they speed up the recipe, they do not replace it.
+This recipe is the work of any researcher. The six AI tools below are nothing more than \emph{assistants} for each step. They speed up the recipe, they do not replace it.
 
-\subsection{The seven tools}
+\subsection{The six tools}
 
 Each tool takes care of one step of the recipe and answers one specific question:
 
@@ -162,7 +162,8 @@ Each tool takes care of one step of the recipe and answers one specific question
     font=\bfseries\sffamily\scriptsize, anchor=south west, inner sep=2pt
   },
   phaseSub/.style={
-    font=\sffamily\scriptsize\itshape, anchor=south west, color=ink!55, inner sep=2pt
+    font=\sffamily\scriptsize\itshape, anchor=north west, color=ink!55, inner sep=2pt,
+    text width=2.9cm, align=left
   },
   question/.style={
     font=\scriptsize\itshape, anchor=north, color=ink!55,
@@ -170,34 +171,32 @@ Each tool takes care of one step of the recipe and answers one specific question
   }
 ]
 % --- Phase background ribbons ---
-\fill[phaseFind!8, rounded corners=5pt] (-0.20, -1.65) rectangle (4.55, 1.80);
-\fill[phaseUnderstand!8, rounded corners=5pt] (4.75, -1.65) rectangle (9.50, 1.80);
-\fill[phaseCreate!8, rounded corners=5pt] (9.70, -1.65) rectangle (16.55, 1.80);
+\fill[phaseFind!8, rounded corners=5pt] (-0.20, -1.65) rectangle (2.80, 1.80);
+\fill[phaseUnderstand!8, rounded corners=5pt] (3.00, -1.65) rectangle (8.30, 1.80);
+\fill[phaseCreate!8, rounded corners=5pt] (8.50, -1.65) rectangle (16.00, 1.80);
 
 % --- Phase labels (label on top line, italic descriptor on line below) ---
-\node[phaseLabel, color=phaseFind]      at (-0.05, 1.40) {1.\ FIND};
-\node[phaseSub]                          at (-0.05, 1.05) {what's out there \& what to keep};
+\node[phaseLabel, color=phaseFind]      at (-0.05, 1.65) {1.\ FIND};
+\node[phaseSub]                          at (-0.05, 1.40) {what's out there \& what to keep};
 
-\node[phaseLabel, color=phaseUnderstand] at (4.90, 1.40) {2.\ UNDERSTAND};
-\node[phaseSub]                          at (4.90, 1.05) {synthesis \& gaps};
+\node[phaseLabel, color=phaseUnderstand] at (3.15, 1.65) {2.\ UNDERSTAND};
+\node[phaseSub]                          at (3.15, 1.40) {synthesis \& gaps};
 
-\node[phaseLabel, color=phaseCreate]     at (9.85, 1.40) {3.\ CREATE};
-\node[phaseSub]                          at (9.85, 1.05) {draft, polish, slides};
+\node[phaseLabel, color=phaseCreate]     at (8.65, 1.65) {3.\ CREATE};
+\node[phaseSub]                          at (8.65, 1.40) {draft, polish, slides};
 
 % --- Tool pills ---
-\node[pill, draw=phaseFind!55, top color=white, bottom color=phaseFind!12] (rr) at (1.10, 0.00) {\textbf{Research}\\\textbf{Rabbit}};
-\node[pill, draw=phaseFind!55, top color=white, bottom color=phaseFind!12] (el) at (3.45, 0.00) {\textbf{Elicit}};
+\node[pill, draw=phaseFind!55, top color=white, bottom color=phaseFind!12] (el) at (1.30, 0.00) {\textbf{Elicit}};
 
-\node[pill, draw=phaseUnderstand!55, top color=white, bottom color=phaseUnderstand!12] (nb) at (5.85, 0.00) {\textbf{Notebook}\\\textbf{LM}};
-\node[pill, draw=phaseUnderstand!55, top color=white, bottom color=phaseUnderstand!12] (cg) at (8.40, 0.00) {\textbf{ChatGPT}\\\textbf{Deep Res.}};
+\node[pill, draw=phaseUnderstand!55, top color=white, bottom color=phaseUnderstand!12] (nb) at (4.30, 0.00) {\textbf{Notebook}\\\textbf{LM}};
+\node[pill, draw=phaseUnderstand!55, top color=white, bottom color=phaseUnderstand!12] (cg) at (7.00, 0.00) {\textbf{ChatGPT}\\\textbf{Deep Res.}};
 
-\node[pill, draw=phaseCreate!55, top color=white, bottom color=phaseCreate!12] (jn) at (10.80, 0.00) {\textbf{Jenni AI}};
-\node[pill, draw=phaseCreate!55, top color=white, bottom color=phaseCreate!12] (pp) at (13.10, 0.00) {\textbf{Paperpal}};
-\node[pill, draw=phaseCreate!55, top color=white, bottom color=phaseCreate!12] (gm) at (15.40, 0.00) {\textbf{Gamma}};
+\node[pill, draw=phaseCreate!55, top color=white, bottom color=phaseCreate!12] (jn) at (9.80, 0.00) {\textbf{Jenni AI}};
+\node[pill, draw=phaseCreate!55, top color=white, bottom color=phaseCreate!12] (pp) at (12.40, 0.00) {\textbf{Paperpal}};
+\node[pill, draw=phaseCreate!55, top color=white, bottom color=phaseCreate!12] (gm) at (15.00, 0.00) {\textbf{Gamma}};
 
 % --- Per-tool questions (below pills) ---
-\node[question] at (rr.south) {what relevant papers exist?};
-\node[question] at (el.south) {which to include?};
+\node[question] at (el.south) {what to read?};
 \node[question] at (nb.south) {what do they say together?};
 \node[question] at (cg.south) {what is still open?};
 \node[question] at (jn.south) {how do I write it?};
@@ -205,7 +204,6 @@ Each tool takes care of one step of the recipe and answers one specific question
 \node[question] at (gm.south) {how to present it?};
 
 % --- Flow arrows ---
-\draw[arr] (rr) -- (el);
 \draw[arr] (el) -- (nb);
 \draw[arr] (nb) -- (cg);
 \draw[arr] (cg) -- (jn);
@@ -219,10 +217,10 @@ Each tool takes care of one step of the recipe and answers one specific question
 
 \subsection{Time budget}
 
-The 45-minute session is a \textbf{kickoff}, not the whole journey. The plan below is a guideline --- the real instruction is simple:
+The 45-minute session is a \textbf{kickoff}, not the whole journey. The plan below is a guideline. The real instruction is simple:
 
 \begin{tipbox}
-\textbf{Go as far as you can in 45 minutes.} Some of you will finish Research Rabbit only, some will reach NotebookLM, and that is fine. The rest is guided homework you finish over the following days. What matters is that you start the pipeline today and that you keep moving forward at your own pace.
+\textbf{Go as far as you can in 45 minutes.} Some of you will finish Elicit only, some will reach NotebookLM, and that is fine. The rest is guided homework you finish over the following days. What matters is that you start the pipeline today and that you keep moving forward at your own pace.
 \end{tipbox}
 
 \begin{center}
@@ -231,13 +229,12 @@ The 45-minute session is a \textbf{kickoff}, not the whole journey. The plan bel
 \toprule
 \textbf{Phase} & \textbf{What happens} & \textbf{Suggested time} \\
 \midrule
-Intro & Recap pipeline; check accounts; pick your topic phrasing & 3 min \\
-\S\,\ref{sec:rr} Research Rabbit & Find a starting paper, pull around 15 papers & 12 min \\
-\S\,\ref{sec:elicit} Elicit & Two passes; end with 5--8 papers you trust & 15 min \\
-\S\,\ref{sec:nblm} NotebookLM (start) & Upload the papers, run the synthesis questions & 10 min \\
+Intro & Recap pipeline; check accounts; pick your topic phrasing & 5 min \\
+\S\,\ref{sec:elicit} Elicit & Search, filter, build the table, download 3 PDFs & 20 min \\
+\S\,\ref{sec:nblm} NotebookLM (start) & Upload the papers, run the synthesis questions & 15 min \\
 Wrap-up & Brief on what to do at home & 5 min \\
 \midrule
-Homework & At your own pace, around 3--5\,h spread over a week & --- \\
+Homework & At your own pace, around 3 to 5\,h spread over a week & \\
 \bottomrule
 \end{tabularx}
 \end{center}
@@ -256,56 +253,20 @@ Homework & At your own pace, around 3--5\,h spread over a week & --- \\
 
 \begin{enumerate}[leftmargin=*, itemsep=2pt]
   \item \textbf{Topic in hand.} The slip of paper a peer gave you. If it feels too broad (e.g.\ ``leadership''), narrow it to one question (e.g.\ ``how does remote work change leadership in teams?'').
-  \item \textbf{A browser open} with you signed in to the seven tools. The free versions are enough; sign-up links are in Appendix~\ref{app:accounts}.
-  \item \textbf{A folder for this project}, somewhere you will find it again --- on your computer, in Dropbox, in Google Drive, wherever you usually work. Inside it, make four sub-folders: \emph{Papers}, \emph{Notes}, \emph{Draft}, \emph{Slides}. You will save things there as you go.
+  \item \textbf{A browser open} with you signed in to the six tools. The free versions are enough; sign-up links are in Appendix~\ref{app:accounts}.
+  \item \textbf{A folder for this project}, somewhere you will find it again, on your computer, in Dropbox, in Google Drive, wherever you usually work. Inside it, make four sub-folders: \emph{Papers}, \emph{Notes}, \emph{Draft}, \emph{Slides}. You will save things there as you go.
   \item \textbf{A document to keep your prompts.} Open a Word document (or a Google Doc, or Notes) and call it ``My prompts''. Each time you ask one of the tools a question that worked well, paste the question in. Later, this lets you remember what you did and explain it if asked.
-  \item \textbf{Do not upload anything sensitive or unpublished} --- your own work, your colleagues' work, or interviews you collected. Stick to published papers and to notes you are happy to share.
+  \item \textbf{Do not upload anything sensitive or unpublished}, your own work, your colleagues' work, or interviews you collected. Stick to published papers and to notes you are happy to share.
 \end{enumerate}
 
 % =====================================================================
-\section{Research Rabbit --- discover the literature}
-\label{sec:rr}
-
-\begin{toolheader}
-\textbf{Goal.} Find about 15 papers about your topic, even if you have never read anything in this field before.\\
-\textbf{Input.} Just your topic in a few words.\\
-\textbf{Output.} A list of papers you can save to your computer.
-\end{toolheader}
-
-\subsection*{Sign up}
-Go to \href{https://www.researchrabbitapp.com/}{researchrabbitapp.com} and click ``Sign up''. It is free.
-
-\subsection*{Steps}
-You only have your topic --- no paper yet. The plan is: ask Google Scholar to find one good paper for you, then let Research Rabbit grow the list around it.
-
-\begin{enumerate}[leftmargin=*, itemsep=2pt]
-  \item \textbf{Find a starting paper.} Open \href{https://scholar.google.com/}{Google Scholar} in another tab. Type your topic followed by the word ``review'' (for example: \emph{remote work leadership review}). Sort by ``Cited by'' and pick one of the top 2--3 results --- ideally a recent one (last 5--10 years). Copy its title.
-  \item In Research Rabbit, click \emph{Create new collection} and give it the name of your topic.
-  \item Click \emph{Add papers}, paste the title you copied, and add the paper to your collection.
-  \item Click on that paper inside Research Rabbit. On the left you will see buttons called \emph{Similar Work}, \emph{Earlier Work}, and \emph{Later Work}. Click each in turn --- Research Rabbit will show you a map of related papers.
-  \item Skim the titles. When one looks relevant, click the heart / plus icon to add it to your collection. Aim for 10--15 papers in total.
-  \item Repeat once: click on a newly added paper, look at its \emph{Similar / Earlier / Later Work}, and add a few more.
-  \item Export the collection. Use the menu in the top right of the collection \(\to\) \emph{Export} \(\to\) choose CSV or ``Zotero''. Save the file inside your \emph{Papers} folder.
-\end{enumerate}
-
-\begin{tipbox}
-If your starting paper finds almost nothing, try a different keyword on Google Scholar (e.g.\ ``hybrid work'' instead of ``remote work''). One good starting paper changes everything.
-\end{tipbox}
-
-\begin{watchout}
-\textbf{Coverage bias.} Research Rabbit's graph is good but not exhaustive --- niche or non-English work may be missing. Cross-check one or two queries on Google Scholar or Semantic Scholar before screening.
-\end{watchout}
-
-\textit{Time budget: 12 min.}
-
-% =====================================================================
-\section{Elicit --- screen and extract}
+\section{Elicit: search and screen}
 \label{sec:elicit}
 
 \begin{toolheader}
-\textbf{Goal.} From your 15 papers, pick the 5--8 best ones and get a clean comparison table.\\
-\textbf{Input.} Your list of papers from Research Rabbit (or the PDFs themselves).\\
-\textbf{Output.} A table where each row is a paper and each column tells you something about it (method, finding, year, \dots).
+\textbf{Goal.} Find the 3 papers most relevant to your topic, and a quick read of the field around them.\\
+\textbf{Input.} Just your topic in a few words.\\
+\textbf{Output.} A comparison table you can read in Elicit (research question, main finding, year), plus 3 downloaded PDFs in your \emph{Papers} folder.
 \end{toolheader}
 
 \subsection*{Sign up}
@@ -313,35 +274,31 @@ Go to \href{https://elicit.com/}{elicit.com} and click ``Sign up''. The free ver
 
 \subsection*{Steps}
 \begin{enumerate}[leftmargin=*, itemsep=2pt]
-  \item Click ``New'' to start a new list of papers. Either upload the file you exported from Research Rabbit, or upload the PDFs of the papers directly.
-  \item Add columns to the table. Good ones to start with:
+  \item In Elicit, choose the \emph{Find papers} workflow. Type your topic phrased as a research question (for example, ``how does remote work change leadership in teams?''). Elicit will return a ranked list of papers.
+  \item Apply three filters before you look at any abstract:
     \begin{itemize}[leftmargin=1.4em, itemsep=1pt]
-      \item \emph{Research question}
-      \item \emph{Type of study} (does it use data / is it theoretical / is it a review?)
-      \item \emph{Method and participants}
-      \item \emph{Main finding}
-      \item \emph{Limitations}
-      \item \emph{Year}
+      \item \emph{Has PDF available}
+      \item \emph{Q1 journals only}
+      \item \emph{Published in the last 6 years}
     \end{itemize}
-  \item Click ``Run'' so Elicit fills the table. Read the cells --- if something looks wrong, it probably is. Elicit sometimes summarizes too confidently.
-  \item \textbf{First pass.} Read only titles and abstracts. Mark each paper as \emph{keep}, \emph{drop}, or \emph{not sure}. Drop the ones that are clearly off-topic.
-  \item \textbf{Second pass.} For the ones you kept, look at the ``method'' and ``main finding'' cells. For at least 3 of them, open the actual PDF and check that what Elicit wrote is true. Drop the weak ones. You should end with 5--8 papers you trust.
-  \item Save the table: use the export button to download it. Save the file (and the PDFs of the papers you kept) inside your \emph{Papers} folder.
+  \item Add three columns to the table: \emph{Research question}, \emph{Main finding}, \emph{Year}.
+  \item Click ``Run'' so Elicit fills the cells. Read them. If something looks wrong, it probably is. Elicit sometimes summarizes too confidently.
+  \item Exporting the table is not available on the free plan, so pick the 3 papers that look most relevant to you, google their titles, and download the PDFs into your \emph{Papers} folder.
 \end{enumerate}
 
 \begin{watchout}
 \textbf{Elicit can invent.} The cells are summaries written by an AI, not quotes from the paper. Before you put a number, a sample size, or a finding into your own paper, open the PDF and check it with your own eyes.
 \end{watchout}
 
-\textit{Time budget: 15 min.}
+\textit{Time budget: 20 min.}
 
 % =====================================================================
-\section{NotebookLM --- synthesize your corpus}
+\section{NotebookLM: synthesize your corpus}
 \label{sec:nblm}
 
 \begin{toolheader}
-\textbf{Goal.} Understand, as a whole, what your 5--8 papers are saying together.\\
-\textbf{Input.} The PDFs you kept, plus the Elicit table.\\
+\textbf{Goal.} Understand, as a whole, what your 3 papers are saying together.\\
+\textbf{Input.} The 3 PDFs you downloaded.\\
 \textbf{Output.} A set of notes about the main themes, agreements, disagreements, and open questions.
 \end{toolheader}
 
@@ -351,14 +308,13 @@ Go to \href{https://notebooklm.google.com/}{notebooklm.google.com} and sign in w
 \subsection*{Steps}
 \begin{enumerate}[leftmargin=*, itemsep=2pt]
   \item Click \emph{New notebook} and give it the name of your topic.
-  \item Upload all the PDFs you kept, and also the Elicit table file, as ``sources''.
-  \item On the right side there is a chat box. Paste the four questions in the box below, one by one. After each answer, click the small pin / save icon to add it to your \emph{Notes}.
-  \item Open your \emph{Notes}. Read them, delete what is unclear or repeated, and reorganize them into something readable. Keep only the points that point back to the sources you uploaded.
-  \item Save the cleaned notes: copy them into a Word document called ``Notes on my topic'' and put it in your \emph{Notes} folder.
+  \item Upload the 3 PDFs you downloaded as ``sources''.
+  \item On the right side there is a chat box. Paste the four questions from the \emph{Copy-paste prompt} box just below, one by one. After each answer, click \emph{Save to note} so it lands in your Notes panel.
+  \item Once all four answers are saved, open the note in NotebookLM and use the \emph{Export to Google Docs} option. Move the resulting Doc into your \emph{Notes} folder.
 \end{enumerate}
 
 \begin{promptbox}
-1. What are the 4--6 main themes that recur across these sources?\\[2pt]
+1. What are the 4 to 6 main themes that recur across these sources?\\[2pt]
 2. Where do the sources agree, and where do they disagree? Cite the sources.\\[2pt]
 3. Which definitions of the central concepts vary across the sources, and how?\\[2pt]
 4. What questions do these papers leave unanswered?
@@ -368,10 +324,10 @@ Go to \href{https://notebooklm.google.com/}{notebooklm.google.com} and sign in w
 \textbf{A citation does not mean ``correct''.} NotebookLM points you to the file it used, but its summary of that file can still be wrong. Click each little citation number to jump to the source and check.
 \end{watchout}
 
-\textit{Time budget: 10 min in session to upload + run prompts; finish curation at home.}
+\textit{Time budget: 15 min in session to upload and run prompts; finish curation at home.}
 
 % =====================================================================
-\section{ChatGPT Deep Research --- find the gaps}
+\section{ChatGPT Deep Research: find the gaps}
 \label{sec:cgdr}
 
 \begin{toolheader}
@@ -387,7 +343,7 @@ Go to \href{https://chatgpt.com/}{chatgpt.com}. Deep Research is only available 
 \begin{enumerate}[leftmargin=*, itemsep=2pt]
   \item In ChatGPT, open the tools menu (the small icons next to the message box) and choose \emph{Deep Research}.
   \item Copy the prompt below into the message box. Replace \texttt{<TOPIC>} with your topic, and paste your NotebookLM notes underneath where it says ``NOTES''.
-  \item Send it. Deep Research takes 5--15 minutes --- this is normal. You can leave the tab open and do something else.
+  \item Send it. Deep Research takes 5 to 15 minutes; this is normal. You can leave the tab open and do something else.
   \item When the report comes back, read it slowly. For each claim you want to keep, click the source link. If the link is broken, or if the source does not actually say what is claimed, drop the claim.
   \item Save the cleaned report in your \emph{Notes} folder under the name ``Insights''.
 \end{enumerate}
@@ -395,7 +351,7 @@ Go to \href{https://chatgpt.com/}{chatgpt.com}. Deep Research is only available 
 \begin{promptbox}
 You are a research assistant for a literature-review draft on <TOPIC>.\\
 Below are my synthesized notes from a small curated corpus. Using these notes plus the broader literature, produce:\\
-1. The 3--5 most consequential research gaps.\\
+1. The 3 to 5 most consequential research gaps.\\
 2. The main methodological challenges in the field.\\
 3. A side-by-side comparison of the dominant theoretical perspectives.\\
 4. Two or three concrete, testable directions for future work.\\
@@ -408,27 +364,27 @@ For every claim, cite at least one source with a working link. Flag uncertainty 
 \textbf{Made-up citations.} Even Deep Research sometimes invents references that look real. Open every link before you trust a claim. If the link is dead, or the page does not say what was claimed, throw the claim out.
 \end{watchout}
 
-\textit{Time budget: 15 min active + waiting time. Homework.}
+\textit{Time budget: 15 min active plus waiting time. Homework.}
 
 % =====================================================================
-\section{Jenni AI --- draft the paper}
+\section{Jenni AI: draft the paper}
 \label{sec:jenni}
 
 \begin{toolheader}
-\textbf{Goal.} Write a first draft of a short paper (about 1\,500--2\,000 words).\\
+\textbf{Goal.} Write a first draft of a short paper (about 1\,500 to 2\,000 words).\\
 \textbf{Input.} Your NotebookLM notes and your ChatGPT insights.\\
 \textbf{Output.} A first draft of a mini-paper, organized in sections.
 \end{toolheader}
 
 \subsection*{Sign up}
-Go to \href{https://jenni.ai/}{jenni.ai}. The free version has a small daily word limit --- enough to write one short paper.
+Go to \href{https://jenni.ai/}{jenni.ai}. The free version has a small daily word limit, enough to write one short paper.
 
 \subsection*{Steps}
 \begin{enumerate}[leftmargin=*, itemsep=2pt]
   \item Click ``New document'' and use your topic as the title.
   \item In the side panel, paste your NotebookLM notes and your ChatGPT insights so Jenni can use them as background.
   \item Type the section titles, one under the other: \emph{Introduction}, \emph{Background}, \emph{What the Literature Says}, \emph{Open Questions}, \emph{Where to Go Next}, \emph{Conclusion}.
-  \item Under each section title, write a single sentence saying what you want this part to argue. Then let Jenni's autocomplete suggest the next sentence. Accept it, change it, or reject it --- one suggestion at a time.
+  \item Under each section title, write a single sentence saying what you want this part to argue. Then let Jenni's autocomplete suggest the next sentence. Accept it, change it, or reject it, one suggestion at a time.
   \item As you write, add citations from the papers you kept. Jenni offers a button for this.
   \item Save the draft as a Word document into your \emph{Draft} folder, under the name ``Paper, version 1''.
 \end{enumerate}
@@ -441,10 +397,10 @@ Always write the first sentence of a paragraph yourself. It steers Jenni and cut
 \textbf{Wrong citations.} Jenni may add a citation that looks perfect but does not actually support the sentence. Open the paper and check before you keep it.
 \end{watchout}
 
-\textit{Time budget: 60--90 min. Homework.}
+\textit{Time budget: 60 to 90 min. Homework.}
 
 % =====================================================================
-\section{Paperpal --- polish the language}
+\section{Paperpal: polish the language}
 \label{sec:paperpal}
 
 \begin{toolheader}
@@ -472,11 +428,11 @@ Go to \href{https://paperpal.com/}{paperpal.com}. The free version is enough for
 \textit{Time budget: 30 min. Homework.}
 
 % =====================================================================
-\section{Gamma --- generate the slide deck}
+\section{Gamma: generate the slide deck}
 \label{sec:gamma}
 
 \begin{toolheader}
-\textbf{Goal.} Turn the paper into a slide deck of 7--10 slides.\\
+\textbf{Goal.} Turn the paper into a slide deck of 7 to 10 slides.\\
 \textbf{Input.} Your final paper (the PDF, or its text).\\
 \textbf{Output.} A slide deck saved as a PDF.
 \end{toolheader}
@@ -488,7 +444,7 @@ Go to \href{https://gamma.app/}{gamma.app}. The free version has enough credits 
 \begin{enumerate}[leftmargin=*, itemsep=2pt]
   \item Click \emph{Create new}, then \emph{Generate}, then choose ``from text'' (or ``Text transform'').
   \item Paste the text of your paper (the whole thing, or a one-page summary).
-  \item Set the options: about 8--10 slides, tone ``academic'', audience ``researchers''.
+  \item Set the options: about 8 to 10 slides, tone ``academic'', audience ``researchers''.
   \item Click \emph{Generate}. After a moment, the deck opens.
   \item Edit the first slide so it shows your name, your topic, the date, and LOURIM. Add or remove slides so the order matches the sections of the paper.
   \item If Gamma added an image you cannot defend, replace it or delete it. When in doubt, no image is better than the wrong image.
@@ -523,10 +479,10 @@ Pick the researcher you (or the organizer) identified for your topic. The simple
 \subsection*{Email template}
 
 \begin{promptbox}
-Subject: Student exploration on <TOPIC> --- LOURIM AI seminar (your feedback?)\\[4pt]
+Subject: Student exploration on <TOPIC>, LOURIM AI seminar (your feedback?)\\[4pt]
 Dear Prof. <NAME>,\\[2pt]
-As part of an AI-for-research seminar at LOURIM (UCLouvain), I produced a short literature synthesis on <TOPIC>, drawing notably on your work on <SPECIFIC PAPER>.\\[2pt]
-The paper draft and a short slide deck are attached. The exercise was time-boxed and AI-assisted, so it is exploratory rather than a finished review --- I would value any feedback you might have on the framing, gaps, or proposed direction.\\[2pt]
+As part of an AI for research seminar at LOURIM (UCLouvain), I produced a short literature synthesis on <TOPIC>, drawing notably on your work on <SPECIFIC PAPER>.\\[2pt]
+The paper draft and a short slide deck are attached. The exercise was time-boxed and AI-assisted, so it is exploratory rather than a finished review. I would value any feedback you might have on the framing, gaps, or proposed direction.\\[2pt]
 With thanks for your time,\\
 <YOUR NAME>\\
 LOURIM, UCLouvain
@@ -566,12 +522,11 @@ LOURIM, UCLouvain
 \toprule
 \textbf{Tool} & \textbf{Sign-up} & \textbf{Free-tier note} \\
 \midrule
-Research Rabbit   & researchrabbitapp.com  & Fully free. \\
 Elicit            & elicit.com             & Free monthly credits, enough for one screening. \\
 NotebookLM        & notebooklm.google.com  & Free with a Google account. \\
 ChatGPT Deep Res. & chatgpt.com            & Paid plan; fallback: regular ChatGPT or Undermind. \\
 Jenni AI          & jenni.ai               & Free daily word cap; fits one mini-paper. \\
-Paperpal          & paperpal.com           & Free checks per month + Word add-in. \\
+Paperpal          & paperpal.com           & Free checks per month plus Word add-in. \\
 Gamma             & gamma.app              & Free credits cover one deck. \\
 \bottomrule
 \end{tabularx}
@@ -581,8 +536,8 @@ Gamma             & gamma.app              & Free credits cover one deck. \\
 \label{app:troubleshoot}
 
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-  \item \textbf{Research Rabbit shows almost no related papers.} Try a second starting paper from Google Scholar --- one extra seed often opens many new branches.
-  \item \textbf{Elicit ran out of free credits.} Only run the extraction on the 5--8 papers that look most relevant, not all 15.
+  \item \textbf{Elicit returns very few papers after filtering.} Loosen one filter at a time: try the last 8 years instead of 6, or drop the Q1 restriction. Re-check that your topic is phrased as a question, not a single keyword.
+  \item \textbf{Elicit ran out of free credits.} Run the extraction only on the 3 papers you plan to keep, not on the full ranked list.
   \item \textbf{NotebookLM refuses to upload a PDF.} The file is probably too big or it is a scanned image. Split the PDF, or use a free tool like Adobe to turn the scan into real text.
   \item \textbf{No access to Deep Research.} Use \emph{Undermind} (\href{https://undermind.ai/}{undermind.ai}) instead, or paste the same prompt into the regular ChatGPT with the web search option turned on.
   \item \textbf{Jenni adds citations you do not recognize.} In Jenni's settings, turn off the option that lets it search the web for citations. Keep only the papers you uploaded.
@@ -593,6 +548,6 @@ Gamma             & gamma.app              & Free credits cover one deck. \\
 \vspace{1em}
 \hrule
 \vspace{0.5em}
-\small \textit{LOURIM --- AI for Research Seminar Series, Part 1.} Source: \href{https://github.com/cvandekerckh/lourim-ai-seminar-series}{github.com/cvandekerckh/lourim-ai-seminar-series}.
+\small \textit{LOURIM, AI for Research Seminar Series, Part 1.} Source: \href{https://github.com/cvandekerckh/lourim-ai-seminar-series}{github.com/cvandekerckh/lourim-ai-seminar-series}.
 
 \end{document}
