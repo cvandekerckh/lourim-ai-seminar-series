@@ -7,9 +7,9 @@ Source materials for a four-part seminar series on using AI tools in academic re
 | # | Title | Materials |
 |---|-------|-----------|
 | 1 | **Tools for AI-assisted research** | [slides](seminar-1-tools/slides/) · [practical](seminar-1-tools/practical/) |
-| 2 | *To be announced* | [seminar-2/](seminar-2/) |
-| 3 | *To be announced* | [seminar-3/](seminar-3/) |
-| 4 | *To be announced* | [seminar-4/](seminar-4/) |
+| 2 | **Responsible AI** | [seminar-2-responsible-ai/](seminar-2-responsible-ai/) |
+| 3 | **Better prompting** | [seminar-3-better-prompting/](seminar-3-better-prompting/) |
+| 4 | **Sustainable AI** | [seminar-4-sustainable-ai/](seminar-4-sustainable-ai/) |
 
 ## How materials are organised
 
