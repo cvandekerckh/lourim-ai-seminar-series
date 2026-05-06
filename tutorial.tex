@@ -12,7 +12,7 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta, positioning, shapes.geometric, calc}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, calc, shadows, fadings}
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{skins, breakable}
 \usepackage[hidelinks,colorlinks=true,urlcolor=blue!60!black,linkcolor=black]{hyperref}
@@ -29,6 +29,12 @@
 \definecolor{promptbg}{HTML}{F4F4F8}
 \definecolor{promptframe}{HTML}{6B7280}
 \definecolor{toolbg}{HTML}{EAF3F9}
+% Phase palette for the pipeline diagram
+\definecolor{phaseFind}{HTML}{2A6F97}        % deep blue
+\definecolor{phaseUnderstand}{HTML}{8E44AD}  % muted purple
+\definecolor{phaseCreate}{HTML}{059669}      % green
+\definecolor{trail}{HTML}{B8C5D6}            % soft track
+\definecolor{ink}{HTML}{2D3748}              % off-black for text
 
 % --- Boxes ---
 \newtcolorbox{watchout}[1][]{
@@ -81,42 +87,135 @@
 \tableofcontents
 \vspace{0.5em}
 
+\clearpage
 % =====================================================================
 \section{Overview}
 \label{sec:overview}
 
-\subsection{The pipeline}
+\subsection{From topic to talk: the method}
 
-Each tool answers one specific question on the way from topic to talk:
+Before we name any tool, here is the recipe behind doing good research --- with or without AI. Five steps, in order:
 
+\vspace{0.6em}
 \begin{center}
+\resizebox{0.92\linewidth}{!}{%
 \begin{tikzpicture}[
-  node distance=3mm and 4mm,
-  every node/.style={font=\footnotesize},
-  tool/.style={
-    rectangle, rounded corners=3pt,
-    draw=accent, fill=toolbg, line width=0.5pt,
-    minimum width=3.0cm, minimum height=1.4cm,
-    align=center, inner sep=3pt
+  every node/.style={font=\footnotesize, color=ink},
+  mstep/.style={
+    circle, draw=phaseFind, fill=phaseFind, line width=0pt,
+    minimum size=1.05cm, text=white, font=\bfseries\large,
+    drop shadow={shadow xshift=0pt, shadow yshift=-1pt, opacity=0.18, fill=black}
   },
-  arr/.style={-{Stealth[length=2mm]}, draw=accent!70!black, line width=0.5pt}
+  mcap/.style={align=center, text width=2.6cm, anchor=north}
 ]
-\node[tool] (rr)   {\textbf{Research Rabbit}\\\scriptsize\emph{Discovery}\\\scriptsize what relevant papers exist?};
-\node[tool, right=of rr]   (el) {\textbf{Elicit}\\\scriptsize\emph{Screening}\\\scriptsize which papers should I include?};
-\node[tool, right=of el]   (nb) {\textbf{NotebookLM}\\\scriptsize\emph{Synthesis}\\\scriptsize what do they collectively say?};
-\node[tool, below=of nb]   (cg) {\textbf{ChatGPT Deep Res.}\\\scriptsize\emph{Gap analysis}\\\scriptsize what is still open?};
-\node[tool, left=of cg]    (jn) {\textbf{Jenni AI}\\\scriptsize\emph{Drafting}\\\scriptsize how do I write it down?};
-\node[tool, left=of jn]    (pp) {\textbf{Paperpal}\\\scriptsize\emph{Polishing}\\\scriptsize does it read well?};
-\node[tool, below=of pp]   (gm) {\textbf{Gamma}\\\scriptsize\emph{Slides}\\\scriptsize how do I present it?};
+% trail line
+\draw[line width=1.4pt, color=trail] (0,0) -- (12,0);
 
+% steps
+\node[mstep] (s1) at (0,0)  {1};
+\node[mstep, fill=phaseFind!92, draw=phaseFind!92] (s2) at (3,0)  {2};
+\node[mstep, fill=phaseUnderstand!85, draw=phaseUnderstand!85] (s3) at (6,0)  {3};
+\node[mstep, fill=phaseUnderstand!95, draw=phaseUnderstand!95] (s4) at (9,0)  {4};
+\node[mstep, fill=phaseCreate!90, draw=phaseCreate!90] (s5) at (12,0) {5};
+
+% captions
+\node[mcap, yshift=-4mm] at (s1.south) {\textbf{Explore}\\\scriptsize\color{ink!70}cast a wide net};
+\node[mcap, yshift=-4mm] at (s2.south) {\textbf{Narrow}\\\scriptsize\color{ink!70}keep what is on topic};
+\node[mcap, yshift=-4mm] at (s3.south) {\textbf{Read}\\\scriptsize\color{ink!70}sit with the sources};
+\node[mcap, yshift=-4mm] at (s4.south) {\textbf{Synthesize}\\\scriptsize\color{ink!70}connect the ideas};
+\node[mcap, yshift=-4mm] at (s5.south) {\textbf{Produce}\\\scriptsize\color{ink!70}paper \& slides};
+\end{tikzpicture}%
+}%
+\end{center}
+\vspace{0.6em}
+
+\textbf{Explore} --- open up. You start from a topic, not a question. Look broadly at what already exists, even outside your own field, so you do not miss the literature that matters.
+
+\textbf{Narrow} --- bring it down. Filter the long initial list into a small, trustworthy set you can actually engage with. Drop the off-topic and the weak.
+
+\textbf{Read} --- slow down. Spend real time with each source. Note the question it asks, the method it uses, what it finds, and where it is fragile.
+
+\textbf{Synthesize} --- connect. Step out of individual papers and look at the picture they make together: what is the consensus, where do they disagree, what is missing?
+
+\textbf{Produce} --- make. Turn that synthesis into something other people can engage with: a written argument, and a presentation that does it justice.
+
+This recipe is the work of any researcher. The seven AI tools below are nothing more than \emph{assistants} for each step --- they speed up the recipe, they do not replace it.
+
+\subsection{The seven tools}
+
+Each tool takes care of one step of the recipe and answers one specific question:
+
+\vspace{0.4em}
+\begin{center}
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  every node/.style={font=\footnotesize, color=ink},
+  pill/.style={
+    rectangle, rounded corners=5pt,
+    fill=white, line width=0.7pt,
+    minimum width=2.0cm, minimum height=1.05cm,
+    align=center, inner sep=3pt,
+    drop shadow={shadow xshift=0pt, shadow yshift=-0.7pt, opacity=0.16, fill=black}
+  },
+  arr/.style={-{Stealth[length=2mm]}, draw=ink!45, line width=0.55pt},
+  phaseLabel/.style={
+    font=\bfseries\sffamily\scriptsize, anchor=south west, inner sep=2pt
+  },
+  phaseSub/.style={
+    font=\sffamily\scriptsize\itshape, anchor=south west, color=ink!55, inner sep=2pt
+  },
+  question/.style={
+    font=\scriptsize\itshape, anchor=north, color=ink!55,
+    align=center, text width=2.2cm
+  }
+]
+% --- Phase background ribbons ---
+\fill[phaseFind!8, rounded corners=5pt] (-0.20, -1.65) rectangle (4.55, 1.55);
+\fill[phaseUnderstand!8, rounded corners=5pt] (4.75, -1.65) rectangle (9.50, 1.55);
+\fill[phaseCreate!8, rounded corners=5pt] (9.70, -1.65) rectangle (16.55, 1.55);
+
+% --- Phase labels ---
+\node[phaseLabel, color=phaseFind] at (-0.05, 1.10) {1.\ FIND};
+\node[phaseSub] at (0.85, 1.10) {what's out there \& what to keep};
+
+\node[phaseLabel, color=phaseUnderstand] at (4.90, 1.10) {2.\ UNDERSTAND};
+\node[phaseSub] at (6.55, 1.10) {synthesis \& gaps};
+
+\node[phaseLabel, color=phaseCreate] at (9.85, 1.10) {3.\ CREATE};
+\node[phaseSub] at (11.05, 1.10) {draft, polish, slides};
+
+% --- Tool pills ---
+\node[pill, draw=phaseFind!55, top color=white, bottom color=phaseFind!12] (rr) at (1.10, 0.00) {\textbf{Research}\\\textbf{Rabbit}};
+\node[pill, draw=phaseFind!55, top color=white, bottom color=phaseFind!12] (el) at (3.45, 0.00) {\textbf{Elicit}};
+
+\node[pill, draw=phaseUnderstand!55, top color=white, bottom color=phaseUnderstand!12] (nb) at (5.85, 0.00) {\textbf{Notebook}\\\textbf{LM}};
+\node[pill, draw=phaseUnderstand!55, top color=white, bottom color=phaseUnderstand!12] (cg) at (8.40, 0.00) {\textbf{ChatGPT}\\\textbf{Deep Res.}};
+
+\node[pill, draw=phaseCreate!55, top color=white, bottom color=phaseCreate!12] (jn) at (10.80, 0.00) {\textbf{Jenni AI}};
+\node[pill, draw=phaseCreate!55, top color=white, bottom color=phaseCreate!12] (pp) at (13.10, 0.00) {\textbf{Paperpal}};
+\node[pill, draw=phaseCreate!55, top color=white, bottom color=phaseCreate!12] (gm) at (15.40, 0.00) {\textbf{Gamma}};
+
+% --- Per-tool questions (below pills) ---
+\node[question] at (rr.south) {what relevant papers exist?};
+\node[question] at (el.south) {which to include?};
+\node[question] at (nb.south) {what do they say together?};
+\node[question] at (cg.south) {what is still open?};
+\node[question] at (jn.south) {how do I write it?};
+\node[question] at (pp.south) {does it read well?};
+\node[question] at (gm.south) {how to present it?};
+
+% --- Flow arrows ---
 \draw[arr] (rr) -- (el);
 \draw[arr] (el) -- (nb);
 \draw[arr] (nb) -- (cg);
 \draw[arr] (cg) -- (jn);
 \draw[arr] (jn) -- (pp);
 \draw[arr] (pp) -- (gm);
-\end{tikzpicture}
+
+\end{tikzpicture}%
+}%
 \end{center}
+\vspace{0.4em}
 
 \subsection{Time budget}
 
