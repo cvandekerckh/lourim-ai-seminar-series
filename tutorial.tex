@@ -170,19 +170,19 @@ Each tool takes care of one step of the recipe and answers one specific question
   }
 ]
 % --- Phase background ribbons ---
-\fill[phaseFind!8, rounded corners=5pt] (-0.20, -1.65) rectangle (4.55, 1.55);
-\fill[phaseUnderstand!8, rounded corners=5pt] (4.75, -1.65) rectangle (9.50, 1.55);
-\fill[phaseCreate!8, rounded corners=5pt] (9.70, -1.65) rectangle (16.55, 1.55);
+\fill[phaseFind!8, rounded corners=5pt] (-0.20, -1.65) rectangle (4.55, 1.80);
+\fill[phaseUnderstand!8, rounded corners=5pt] (4.75, -1.65) rectangle (9.50, 1.80);
+\fill[phaseCreate!8, rounded corners=5pt] (9.70, -1.65) rectangle (16.55, 1.80);
 
-% --- Phase labels ---
-\node[phaseLabel, color=phaseFind] at (-0.05, 1.10) {1.\ FIND};
-\node[phaseSub] at (0.85, 1.10) {what's out there \& what to keep};
+% --- Phase labels (label on top line, italic descriptor on line below) ---
+\node[phaseLabel, color=phaseFind]      at (-0.05, 1.40) {1.\ FIND};
+\node[phaseSub]                          at (-0.05, 1.05) {what's out there \& what to keep};
 
-\node[phaseLabel, color=phaseUnderstand] at (4.90, 1.10) {2.\ UNDERSTAND};
-\node[phaseSub] at (6.55, 1.10) {synthesis \& gaps};
+\node[phaseLabel, color=phaseUnderstand] at (4.90, 1.40) {2.\ UNDERSTAND};
+\node[phaseSub]                          at (4.90, 1.05) {synthesis \& gaps};
 
-\node[phaseLabel, color=phaseCreate] at (9.85, 1.10) {3.\ CREATE};
-\node[phaseSub] at (11.05, 1.10) {draft, polish, slides};
+\node[phaseLabel, color=phaseCreate]     at (9.85, 1.40) {3.\ CREATE};
+\node[phaseSub]                          at (9.85, 1.05) {draft, polish, slides};
 
 % --- Tool pills ---
 \node[pill, draw=phaseFind!55, top color=white, bottom color=phaseFind!12] (rr) at (1.10, 0.00) {\textbf{Research}\\\textbf{Rabbit}};
