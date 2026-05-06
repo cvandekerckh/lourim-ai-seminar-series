@@ -12,5 +12,10 @@
 *.snm
 *.vrb
 
+# Keynote / iWork autosave & sandbox files
+*.key.sb-*
+.~lock.*
+
 # macOS
 .DS_Store
+._*

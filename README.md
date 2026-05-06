@@ -1,25 +1,52 @@
-# LOURIM AI Seminar Series — Practical Part
+# LOURIM — AI for Research Seminar Series
 
-A 45-minute hands-on tutorial that walks researchers through a 7-tool AI pipeline to turn a research topic into a mini paper draft and slide deck:
+Source materials for a four-part seminar series on using AI tools in academic research, run at the Louvain Research Institute in Management (LOURIM, UCLouvain).
 
-**Research Rabbit → Elicit → NotebookLM → ChatGPT Deep Research → Jenni AI → Paperpal → Gamma**
+## The four seminars
 
-The session kicks off the workflow live (Research Rabbit + Elicit + NotebookLM start). Participants finish the rest at home and email the final paper + slides to a researcher in their topic's field.
+| # | Title | Materials |
+|---|-------|-----------|
+| 1 | **Tools for AI-assisted research** | [slides](seminar-1-tools/slides/) · [practical](seminar-1-tools/practical/) |
+| 2 | *To be announced* | [seminar-2/](seminar-2/) |
+| 3 | *To be announced* | [seminar-3/](seminar-3/) |
+| 4 | *To be announced* | [seminar-4/](seminar-4/) |
 
-## Build
+## How materials are organised
+
+Each `seminar-N-*/` folder contains:
+
+- **`slides/`** — the theoretical talk. Both the editable Keynote source (`.key`) and a PDF export, so participants without macOS can still read the slides.
+- **`practical/`** — the hands-on session. A LaTeX tutorial document (`.tex` source) plus the compiled `.pdf` handout.
+
+## For participants
+
+You only need the PDFs.
+
+- Click into the seminar folder you want.
+- Open `slides/*.pdf` for the talk and `practical/tutorial.pdf` for the practical handout.
+- GitHub renders both PDFs in the browser, or you can download them.
+
+You do not need to clone the repository or install LaTeX.
+
+## For maintainers
+
+### Rebuild the practical PDF
 
 ```bash
-pdflatex tutorial.tex
-pdflatex tutorial.tex   # second pass for TOC
+cd seminar-1-tools/practical
+pdflatex tutorial.tex && pdflatex tutorial.tex
 ```
 
-Output: `tutorial.pdf`.
+Two passes are needed so the table of contents and cross-references resolve.
 
-## Files
+### Re-export the slide deck
 
-- `tutorial.tex` — the tutorial source.
-- `tutorial.pdf` — compiled handout.
+Open the `.key` file in Keynote, then *File → Export To → PDF*. Save next to the `.key` with the same base name.
 
-## Context
+### What the repo does **not** track
 
-Practical part of the AI-for-research seminar series at LOURIM (UCLouvain Louvain Research Institute in Management).
+LaTeX intermediates (`.aux`, `.log`, `.out`, `.toc`, `.synctex.gz`) and macOS metadata (`.DS_Store`) are ignored — see [.gitignore](.gitignore).
+
+## License
+
+Materials are shared for educational use within the LOURIM seminar audience. If you want to reuse them elsewhere, please get in touch.
